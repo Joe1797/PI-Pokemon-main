@@ -1,0 +1,133 @@
+.container{
+    display: flex;
+    height: 100vh;
+    font-family: 'Grandstander','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, cursive;
+    
+}
+
+.container1{
+    background-image: url("https://wallpaperaccess.com/full/697708.jpg") ;
+    background-size: cover;
+    background-position: center center;
+    width: 55vw;
+}
+
+.container2{
+    width: 45vw;
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+    85deg,
+    hsl(208deg 84% 77%) 0%,
+    hsl(217deg 57% 78%) 21%,
+    hsl(242deg 28% 78%) 38%,
+    hsl(309deg 19% 74%) 51%,
+    hsl(346deg 39% 75%) 64%,
+    hsl(0deg 59% 76%) 78%,
+    hsl(8deg 82% 74%) 100%
+    );
+}
+
+.h1Land{
+    color: white;
+    font-size: xx-large;
+    font-weight: 900;
+    text-shadow: 3px 3px #000000;
+    margin: 0 10px 0 10px;
+    border: 0;
+    padding: 0 0 0.5rem 0;
+}
+
+span{
+    color: rgb(14, 19, 62);
+    font-size: smaller;
+    font-weight: 500;
+    margin: 0 0 2rem 0;
+    border: 0;
+    padding: 0;
+}
+
+h2{
+    color: rgb(14, 19, 62);
+    font-size: larger;
+    font-weight: 900;
+    margin: 0 10px 2rem 10px;
+    border: 0;
+    padding: 0;
+}
+
+.lista{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    
+}
+
+.listaOpt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 0 14px 0 14px;
+}
+
+footer{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    position: fixed;
+    left: 55%;
+    bottom: 0;
+    width: 45%;
+    color: white;
+    text-align: center;
+    background-image: linear-gradient(
+        85deg,
+        hsl(208deg 84% 77%) 0%,
+        hsl(217deg 57% 78%) 21%,
+        hsl(242deg 28% 78%) 38%,
+        hsl(309deg 19% 74%) 51%,
+        hsl(346deg 39% 75%) 64%,
+        hsl(0deg 59% 76%) 78%,
+        hsl(8deg 82% 74%) 100%
+        );
+}
+
+a{
+    margin: 10px;
+}
+
+.buttonIng{
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+    background-color: #00a7cc;
+    padding: 10px 30px;
+    border: none;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition : 1000ms;
+    transform: translateY(0);
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+
+
+.buttonIng:hover{
+
+transition : 1000ms;
+padding: 10px 50px;
+transform : translateY(-0px);
+background-color: #fff;
+color: #0066cc;
+border: none;
+}

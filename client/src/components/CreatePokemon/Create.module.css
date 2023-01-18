@@ -1,0 +1,109 @@
+.containerForm{
+    display: flex;
+    flex-direction: column;
+    background-image: url("https://www.teechu.com/wp-content/uploads/2018/08/pokemon-professor-oak-facts-trivia.jpg");
+    background-size: cover;
+    height: auto;
+    background-attachment: scroll;
+}
+
+.titulo{
+    color: white;
+}
+
+.containerCamp{
+    background-color: rgb(112, 112, 112,0.75);
+    border-radius: 12px;
+    padding: 0.275rem 0;
+    margin: 0.5rem auto;
+    width: 30vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.containerCamp label{
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+    padding: 0 5px;
+}
+
+.containerCamp input{
+    width: 200px;
+    text-align: center;
+    margin: 0 5px;
+    padding: 0;
+    border-radius: 12px;
+}
+
+.containerCamp p{
+    color: rgb(141, 2, 2);
+    font-weight: 800;
+    font-size: smaller;
+    margin: 0 0 0 10px;
+}
+
+.containerTypes{
+    margin: auto;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.containerInpTyp{
+    margin: 8px 5px;
+    width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.containerInpTyp label{
+    font-weight: 500;
+    font-size: medium;
+}
+
+/* .containerBtns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1.3rem;
+} */
+
+.containerBtns button{
+    border-radius: 50px;
+    width: 15vw;
+    text-align: center;
+    margin: 18px 0 0 0;
+    border: 0;
+    cursor: pointer;
+    font-weight: 900;
+    transition: 1000ms;
+}
+
+.containerBtns button:hover{
+    background-color: rgb(167, 0, 0);
+    color: white;
+    transition: 1000ms;
+}
+
+.btnHome{
+    border-radius: 50px;
+    width: 15vw;
+    text-align: center;
+    margin: 0 0 0 0;
+    border: 0;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.btnHome:hover{
+    background-color: rgb(167, 0, 0);
+    color: white;
+    transition: 1000ms;
+}

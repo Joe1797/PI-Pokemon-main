@@ -1,0 +1,40 @@
+.containerCard{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 20vw;
+    background-color: rgb(199, 198, 198);
+    border-radius: 12px;
+    height: 33.3vh;
+    transition: transform .3s;
+}
+
+.containerCard:hover{
+    transform: scale(1.075);
+    background-color: rgb(205, 205, 205);;
+}
+
+.containerCard h2{
+    padding: 0;
+    margin: 0;
+    font-size: medium;
+}
+
+.containerCard img{
+    height: 65%;
+    background-color: azure;
+    padding: 5px;
+}
+
+.containerTypes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.containerTypes span{
+    margin: 0;
+    padding: 5px;
+    font-weight: 700;
+}

@@ -1,0 +1,89 @@
+.containerCard{
+    display: flex;
+    margin: 1.5rem auto;
+    justify-content: center;
+    flex-direction: column;
+    width: 60vw;
+    height: auto;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(60deg, #FFDEE9 14%, #B5FFFC 31%, #91ef8c 65%, #de8ff5 87%);
+    border-radius: 40px;
+}
+
+.containerCard h1{
+    padding: 15px 0 5px 0;
+    margin: 0;
+    font-weight: 900;
+}
+
+.containerCard h3{
+    padding: 5px;
+    margin: 0;
+    font-weight: 800;
+}
+
+.containerCard div span{
+    padding: 5px;
+    margin: 0 10px;
+}
+
+.containerCard div img{
+    height: 36vh;
+    width: 90%;
+    margin: 15px;
+    transition: transform .3s;
+}
+
+.containerCard div img:hover{
+    transform: scale(1.1);
+}
+
+.containerStats{
+    margin: auto;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    width: 15vw;
+    align-items: center;
+    font-size: larger;
+    height: 7.5vh;
+    margin: 0 60px;
+    padding: 2px 0px;
+}
+
+.stats span{
+    margin: 0;
+    padding: 0;
+}
+
+.btnIr{
+    position: fixed;
+    text-align: center;
+    bottom: 5%;
+    left: 85%;
+    width: 8vw;
+    z-index: 999;
+    cursor: pointer;   
+    font-size: 14px;
+    color: rgb(248, 248, 248);
+    background-color: #f31313;
+    padding: 10px 0px;
+    border: none;
+    box-shadow: rgb(209, 0, 0) 1px 1px 1px 1px;
+    border-radius: 50px;
+    transition : 1500ms;
+}
+
+.btnIr:hover{
+    transition : 1500ms;
+    background-color: rgb(121, 0, 0);
+    color: #ffffff;
+    border: none;
+}

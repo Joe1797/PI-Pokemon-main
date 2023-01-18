@@ -1,0 +1,104 @@
+.containerHeader,.containerLogo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 65px;
+    padding: 3px;
+}
+
+.containerLogo img {
+    max-height: 65%;
+    margin-right: 10px;
+}
+
+.btnCrear{
+    font-weight: 800;
+    font-size: 16px;
+    color: rgb(235, 3, 3);
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: rgb(209, 0, 0) 1px 1px 1px 1px;
+    border-radius: 50px;
+    transition : 1500ms;
+    cursor: pointer;
+}
+
+.btnCrear:hover{
+    transition : 1500ms;
+    padding: 10px 40px;
+    background-color: rgb(169, 0, 0);
+    color: #ffffff;
+    border: none;
+}
+
+.containerSearch{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color:  rgb(235, 3, 3);
+}
+
+.containerSearch input, .containerSearch button {
+    margin: 0 5px;
+    border-radius: 50px;
+}
+
+.containerSearch button{
+    width: 65px;
+    color: white;
+    background-color: transparent;
+    border: white solid 3px;
+    box-shadow: white 1px 1px 1px 1px;
+    cursor: pointer;
+    transition : 1500ms;
+}
+
+.containerSearch button:hover{
+    transition : 1500ms;
+    background-color:rgb(255, 255, 255);
+    color: rgb(235, 3, 3);
+}
+
+.containerFilters{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;   
+    font-weight: 500;
+    padding: 5px;
+}
+
+.containerFilters div label{
+    margin: 0 10px;
+    font-size: 12px;
+    color: rgb(143, 0, 0);
+}
+
+.containerFilters div select{
+    border-radius: 50px;
+    border-width: 2px;
+    border-color:red;
+    border-style: outset;
+    width: 100px;
+    color:rgb(0, 0, 0);
+}
+
+.containerFilters div select option{
+    background-color: black;
+    color:rgb(255, 255, 255);
+    text-align: center;
+}
+
+.containerCards{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}

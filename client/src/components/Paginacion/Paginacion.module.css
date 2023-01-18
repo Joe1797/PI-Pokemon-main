@@ -1,0 +1,40 @@
+.containerPaginacion{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height:20px ;
+}
+
+.containerPaginacion input{
+    width: 30px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.containerPaginacion button{
+    margin: 0 25px;
+    cursor: pointer;
+    background-color: rgb(253, 253, 253);
+    border-radius: 50px;
+    font-weight: bolder;
+    border: rgb(169, 0, 0) solid 1px;
+    color: rgb(169, 0, 0)
+}
+
+.containerPaginacion button:hover {
+    transition : 500ms;
+    background-color: rgb(169, 0, 0);
+    color: #ffffff;
+    border: none;
+}
+
+.containerPaginacion p{
+    margin: 0;
+    padding: 0;
+    width: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}
