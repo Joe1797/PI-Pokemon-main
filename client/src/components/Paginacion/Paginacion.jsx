@@ -46,7 +46,7 @@ export default function Paginacion ({pagina,setPagina,maximo}){
                 autoComplete="false"
                 value={input}
                 />
-            {(maximo)?<p>{maximo}</p>:<p> de -</p>}
+            {(maximo)?<p>de {maximo}</p>:<p> de -</p>}
             <button onClick={nextPage} disabled={pagina===maximo||pagina>maximo||isNaN(maximo)}>{">"}</button>
         </div>        
     )
