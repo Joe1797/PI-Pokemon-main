@@ -181,7 +181,7 @@ export default function CreatePokemon () {
                 })}
             </div>
             <div className={styles.containerBtns}>
-                <button type="submit" disabled={inputs.name==="" || errors.name ||errors.types}>Create</button>
+                <button type="submit" disabled={inputs.name==="" || errors.name ||errors.types ||Object.keys(errors).length>=1}>Create</button>
             </div>
         </form>
             <Link to="/pokemons"><button className={styles.btnHome} type='button'>Home</button></Link>
