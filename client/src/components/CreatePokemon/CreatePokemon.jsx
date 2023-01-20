@@ -150,7 +150,7 @@ export default function CreatePokemon () {
                 <input type="number"
                     placeholder='1'  
                     min={1} 
-                    max={200}
+                    max={1000}
                     name='weight'
                     onChange={handleInputs}
                 />

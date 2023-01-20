@@ -30,6 +30,13 @@
     border: none;
 }
 
+.containerPaginacion button:disabled {
+    transition : 500ms;
+    background-color: rgb(85, 85, 85);
+    color: #ffffff;
+    border: none;
+}
+
 .containerPaginacion p{
     margin: 0;
     padding: 0;

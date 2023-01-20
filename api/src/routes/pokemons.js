@@ -7,7 +7,7 @@ const {Pokemon,Type} = require('../db');
 
 
 router.get('/',async (req,res,next)=>{
-    // try {
+    try {
         const {name} = req.query;
         console.log(name)
         if(name){
@@ -99,60 +99,10 @@ router.get('/',async (req,res,next)=>{
             return res.json(pokemonsAll)
         }
 
-    // } catch (error) {
-    //     res.status(404).send(error)
-    // }    
+    } catch (error) {
+         res.status(404).send(error)
+    }    
 });
-
-// router.get('/',async (req,res,next)=>{
-//     // const {name} = req.query;
-//     // if(name) next();
-//     // const response = await fetch("https://pokeapi.co/api/v2/pokemon")
-//     const response = await fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=40")
-//     const data = await response.json()
-    
-//     let arrayPromises = data.results.map(async e => {
-//         const dataPrev = await fetch(e.url)
-//         return dataPrev.json()
-//     })
-    
-//     console.log(arrayPromises)
-    
-//     const pokemons = (await Promise.all(arrayPromises)).map(data=>{
-//         const {id,name,height,types,sprites,stats,weight} = data;
-//         // console.log(types);
-//         let typesA = types.map(e=>e.type.name)
-//         let statsNameBase = {};
-            
-//         stats.forEach(e=>{
-//             if(e.stat.name === "hp") statsNameBase[e.stat.name] = e.base_stat
-//             if(e.stat.name === "attack") statsNameBase[e.stat.name] = e.base_stat
-//             if(e.stat.name === "defense") statsNameBase[e.stat.name] = e.base_stat
-//             if(e.stat.name === "speed") statsNameBase[e.stat.name] = e.base_stat
-//         })
-    
-//         return {
-//             id,name,
-//             hp : statsNameBase.hp,
-//             attack : statsNameBase.attack,
-//             defense : statsNameBase.defense,
-//             speed: statsNameBase.speed,
-//             height:height,
-//             weight : weight,
-//             image : (sprites.other.dream_world.front_default)?sprites.other.dream_world.front_default:sprites.front_default,
-//             origin:"api",
-//             types : typesA
-//         }
-//     })
-    
-//     const pokemonsDb = await Pokemon.findAll();
-    
-//     // const pokemonsAll = pokemons.concat(pokemonsDb);
-//     const pokemonsAll = [...pokemonsDb, ...pokemons];
-    
-//     return res.json(pokemonsAll)
-// });
-
     
 router.get('/:id',async (req,res)=>{
     const {id} = req.params;
@@ -224,8 +174,8 @@ router.post("/",async(req,res)=>{
     } catch (error) {
         return res.status(404).send(error)
     }
+});
 
-   
-})
+
 
 module.exports=router;

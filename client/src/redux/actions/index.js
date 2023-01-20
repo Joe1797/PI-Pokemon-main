@@ -38,13 +38,23 @@ export const typeFilter = (type)=>{
 
 
 export const getPokemons =()=>{
-    return async (dispatch) => {
-        const res = await axios("http://localhost:3001/pokemons");
-        dispatch({
-            type:GET_POKEMONS,
-            payload:res.data
+
+    return (dispatch)=>{
+        axios("http://localhost:3001/pokemons")
+        .then((res)=>{
+            dispatch({
+                type:GET_POKEMONS,
+                payload:res.data
+            })
         })
     }
+    // return async (dispatch) => {
+    //     const res = await axios("http://localhost:3001/pokemons");
+    //     dispatch({
+    //         type:GET_POKEMONS,
+    //         payload:res.data
+    //     })
+    // }
 };
 
 export const getTypes =()=>{
