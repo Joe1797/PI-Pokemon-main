@@ -42,7 +42,8 @@ const rootReducer = (state = initialState, action) => {
             }
             return {
                 ...state,
-                pokemonSeach:data
+                pokemonSeach:data,
+                pokemons:data
             };
         case GET_TYPES:
             return {
@@ -61,7 +62,9 @@ const rootReducer = (state = initialState, action) => {
             const filterType = copyPokeForType.filter((e)=>{
                 if(e.origin==="api") {
                     return e.types.includes(action.payload)
-                } 
+                } else{ //Para resolver advertencia de React
+                    return false
+                }
                 // else {
                 //     for (const prop in e.types) {
                 //         if(e.types[prop]===action.payload) return true;

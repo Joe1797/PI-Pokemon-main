@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './Create.module.css';
 import * as actions from '../../redux/actions';
 import validate from './validation';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -51,7 +51,7 @@ export default function CreatePokemon () {
         if(name==="types") {
             setInputs({
                 ...inputs,
-                types: [...inputs.types,...value]   
+                types: [...inputs.types,parseInt(value)]   
             })
         }else{
             if(name==="name") {
@@ -70,17 +70,18 @@ export default function CreatePokemon () {
         setErrors(validate({
             ...inputs
         }))
-        console.log(errors)
+        console.log(inputs)
     }
 
+    const navigate = useNavigate();
 
     return (
         <div className={styles.containerForm}>
         <h1 className={styles.titulo}>Ingresa los datos de tu nuevo Pokemon</h1>
-        <form onSubmit={()=>{dispatch(actions.createPokemon(inputs))}}>
+        <form onSubmit={()=>{dispatch(actions.createPokemon(inputs)); navigate("/pokemons")}}>
             <div className={styles.containerCamp}>
                 {(errors.name)?<p>{errors.name}</p>:null}
-                <label>Name:</label>
+                <label>*Name:</label>
                 <input type="text"
                     placeholder='pokexxx' 
                     name='name'
@@ -165,7 +166,7 @@ export default function CreatePokemon () {
             </div>
             <div className={styles.containerCamp}>
                 {(errors.types)?<p>{errors.types}</p>:null}
-                <label>Types:</label>
+                <label>*Types:</label>
             </div>
             <div className={styles.containerTypes}>
                 {types.map(e=>{
@@ -180,7 +181,7 @@ export default function CreatePokemon () {
                 })}
             </div>
             <div className={styles.containerBtns}>
-                <button type="submit">Crear</button>
+                <button type="submit" disabled={inputs.name==="" || errors.name ||errors.types}>Create</button>
             </div>
         </form>
             <Link to="/pokemons"><button className={styles.btnHome} type='button'>Home</button></Link>

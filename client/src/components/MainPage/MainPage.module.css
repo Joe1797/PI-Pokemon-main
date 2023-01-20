@@ -64,6 +64,12 @@
     color: rgb(235, 3, 3);
 }
 
+.containerSearch button:disabled{
+    transition : 1500ms;
+    background-color:rgb(181, 181, 181);
+    color: rgba(86, 86, 86, 0.3);
+}
+
 .containerFilters{
     display: flex;
     flex-wrap: nowrap;
@@ -101,4 +107,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+}
+
+.msjNoRes{
+    color: rgb(146, 0, 0);
+    font-size: larger;
+    font-weight: 900;
 }

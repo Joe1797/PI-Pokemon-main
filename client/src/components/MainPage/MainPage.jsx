@@ -24,17 +24,20 @@ export default function MainPage () {
     const onChange = (e)=>{
         setNameSearch(e.target.value)
     }
-
+    
+    
     const searchByName =(name)=>{
-        if(name===""){
-            dispatch(actions.getPokemons())
-        }
-        dispatch(actions.getPokemonByName(name))
+        // if(name===""){
+            //     dispatch(actions.getPokemons())
+            // }
+        dispatch(actions.getPokemonByName(name));
+        setTimeout(()=>setNameSearch(""),1000);
+        
     }
-
+        
     const foundPokemon = useSelector((state)=>{return state.pokemonSeach})
-
-    console.log(foundPokemon)
+        
+    // console.log(foundPokemon)
 
     const typesArr = useSelector((state)=>{return state.types})
     // console.log(typesArr)
@@ -52,14 +55,14 @@ export default function MainPage () {
             case "typeOrd":
                 return dispatch(actions.typeFilter(value));
             default:
-                return dispatch(actions.getPokemons())
+                return console.log("Cargando")
         }
     }
 
     // PAGINADO - ESTADOS
 
     const [pagina,setPagina] = useState(1);
-    const [porPagina,setPorPagina] = useState(12);
+    const [porPagina] = useState(12);
 
     const maximo = Math.ceil(pokemons.length / porPagina);
     // console.log(maximo)
@@ -69,17 +72,16 @@ export default function MainPage () {
         <>
             <header className={styles.containerHeader}>
                 <div className={styles.containerLogo}>
-                    <img src='https://toppng.com/public/uploads/thumbnail/pokeball-11530983148eo0t7ty4ls.png'></img>
+                    <img src='https://toppng.com/public/uploads/thumbnail/pokeball-11530983148eo0t7ty4ls.png' alt='Logo'></img>
                     <h3>PokeWeb</h3>
                 </div>
                 <div>
-                    <Link to="/pokemons/create"><button className={styles.btnCrear}>Crea Tú Pokemon!</button></Link>
+                    <Link to="/pokemons/create"><button className={styles.btnCrear}>Create your Pokemon!</button></Link>
                 </div>
             </header>
-
             <div className={styles.containerSearch}>
-                <input type="search" placeholder='       Search by Name' onChange={onChange} value={nameSearch} />
-                <button onClick={()=>searchByName(nameSearch)}> Search </button>
+                <input type="search" placeholder='         Search by Name' onChange={onChange} value={nameSearch} />
+                <button onClick={()=>searchByName(nameSearch)} disabled={nameSearch===""}> Search </button>
                 <button onClick={()=> {setNameSearch(""); searchByName("")}}> All </button>
             </div>
             <div className={styles.containerFilters}>
@@ -124,6 +126,7 @@ export default function MainPage () {
                 <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
             </div>
             {/* <h1>{nameSearch}</h1> */}
+            {(pokemons.length===0)?<p className={styles.msjNoRes}>No results to display, modify the request</p>:null}
             <div className={styles.containerCards}>
             {(foundPokemon.name!==undefined) ? <Card
                         id={foundPokemon.id}
