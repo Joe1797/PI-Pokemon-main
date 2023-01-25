@@ -1,4 +1,4 @@
-import { GET_POKEMONS,GET_POKEMONS_BY_ID,GET_POKEMONS_BY_NAME, GET_TYPES, NAME_ORDER,ATTACK_ORDER,TYPE_FILTER,ORIGIN_FILTER } from "../actions";
+import { GET_POKEMONS,GET_POKEMONS_BY_ID,GET_POKEMONS_BY_NAME, GET_TYPES, NAME_ORDER,ATTACK_ORDER,TYPE_FILTER,ORIGIN_FILTER,All_POKEMONS } from "../actions";
 
 const initialState = {
     pokemons:[],
@@ -15,6 +15,10 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 pokemons:action.payload,
                 allPokemons:action.payload
+            };
+        case All_POKEMONS:
+            return {
+                ...state
             };
         case GET_POKEMONS_BY_ID:
             return {
@@ -55,7 +59,8 @@ const rootReducer = (state = initialState, action) => {
             const filterOri = copyPokeForOri.filter((e)=>e.origin===action.payload)
             return{
                 ...state,
-                pokemons:filterOri
+                pokemons:filterOri,
+                allPokemons:filterOri
             };
         case TYPE_FILTER:
             const copyPokeForType = [...state.allPokemons]
@@ -83,7 +88,8 @@ const rootReducer = (state = initialState, action) => {
 
             return{
                 ...state,
-                pokemons:filterType
+                pokemons:filterType,
+                allPokemons:filterType
             };
         case ATTACK_ORDER:
             let copyPokeForAtta = [...state.allPokemons];
@@ -96,7 +102,8 @@ const rootReducer = (state = initialState, action) => {
             }
             return{
                 ...state,
-                pokemons:copyPokeForAtta
+                pokemons:copyPokeForAtta,
+                allPokemons:copyPokeForAtta
             };
         case NAME_ORDER:
             let copyPokeForName = [...state.allPokemons];
@@ -109,8 +116,30 @@ const rootReducer = (state = initialState, action) => {
             }
             return{
                 ...state,
-                pokemons:copyPokeForName
+                pokemons:copyPokeForName,
+                allPokemons:copyPokeForName
             };
+        // case FILTER_COMBINED:
+
+        // // obj={
+        // //     ORIGIN_FILTER : filter 
+        // //     TYPE_FILTER: filter
+        // //     ATTACK_ORDER: sort
+        // //     NAME_ORDER: sort 
+        // // }
+
+            // let copyPokemons = [...state.allPokemons]
+            // let filterPokemons = []
+            // let metodos = Object.keys(filterCombiner)
+
+            // metodos.forEach((e)=>{
+                
+            // })
+
+            // return{
+            //     ...state,
+            //     pokemons:
+            // }
             
         default:
             return state;

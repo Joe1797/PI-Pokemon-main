@@ -10,6 +10,13 @@ export default function MainPage () {
 
     const [nameSearch,setNameSearch] = useState("");
 
+    const [select,setSelect] = useState({
+        nameOrd:"all",
+        originOrd:"all",
+        attackOrd:"all",
+        typeOrd:"all"
+    });
+
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -31,20 +38,21 @@ export default function MainPage () {
             //     dispatch(actions.getPokemons())
             // }
         dispatch(actions.getPokemonByName(name));
+        setPagina(1);
         setTimeout(()=>setNameSearch(""),1000);
         
     }
         
     const foundPokemon = useSelector((state)=>{return state.pokemonSeach})
-        
+    
     // console.log(foundPokemon)
 
     const typesArr = useSelector((state)=>{return state.types})
     // console.log(typesArr)
     const handleClick = (e)=>{
         const {name,value}=e.target;
-        if(value==="all") return dispatch(actions.getPokemons())
-        console.log(name,value);
+        // console.log(name,value);
+        if(value==="all") return dispatch(actions.allPokemons())
         switch(name){
             case "originOrd":
                 return dispatch(actions.originFilter(value));
@@ -55,9 +63,19 @@ export default function MainPage () {
             case "typeOrd":
                 return dispatch(actions.typeFilter(value));
             default:
-                return console.log("Cargando")
+                
         }
     }
+
+    const onChangeSelect = (e) =>{
+        console.log(e.target.name)
+        setSelect({
+            ...select,
+            [e.target.name] :e.target.value
+        })
+    }
+
+    console.log(select)
 
     // PAGINADO - ESTADOS
 
@@ -82,12 +100,18 @@ export default function MainPage () {
             <div className={styles.containerSearch}>
                 <input type="search" placeholder='         Search by Name' onChange={onChange} value={nameSearch} />
                 <button onClick={()=>searchByName(nameSearch)} disabled={nameSearch===""}> Search </button>
-                <button onClick={()=> {setNameSearch(""); searchByName("")}}> All </button>
+                <button onClick={()=> {setNameSearch("");setSelect({
+                    ...select,
+                    nameOrd:"all",
+                    originOrd:"all",
+                    attackOrd:"all",
+                    typeOrd:"all"
+                }) ;searchByName("");dispatch(actions.getPokemons())}}> All </button>
             </div>
             <div className={styles.containerFilters}>
                 <div>
                     <label>By Origin</label>
-                    <select name="originOrd" onClick={handleClick}>
+                    <select name="originOrd" onClick={handleClick} value={select.originOrd} onChange={onChangeSelect}>
                         <option value="all">-</option>
                         <option value="db">DataBase</option>
                         <option value="api">Api</option>
@@ -95,7 +119,7 @@ export default function MainPage () {
                 </div>
                 <div>
                     <label>By Name</label>
-                    <select name="nameOrd" onClick={handleClick}>
+                    <select name="nameOrd" onClick={handleClick} onChange={onChangeSelect} value={select.nameOrd}>
                         <option value="all">-</option>
                         <option value="Ascendente">Ascendente</option>
                         <option value="Descendente">Descendente</option>
@@ -103,7 +127,7 @@ export default function MainPage () {
                 </div>
                 <div>
                     <label>By Attack</label>
-                    <select name="attackOrd" onClick={handleClick}>
+                    <select name="attackOrd" onClick={handleClick} onChange={onChangeSelect} value={select.attackOrd}>
                         <option value="all">-</option>
                         <option value="Ascendente">Ascendente</option>
                         <option value="Descendente">Descendente</option>
@@ -111,7 +135,7 @@ export default function MainPage () {
                 </div>
                 <div>
                     <label>By Type</label>
-                    <select name="typeOrd" onClick={handleClick}>
+                    <select name="typeOrd" onClick={handleClick} onChange={onChangeSelect} value={select.typeOrd}>
                         <option value="all">-</option>
                         {typesArr.map(e=>{
                             return(

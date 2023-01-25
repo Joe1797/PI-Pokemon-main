@@ -10,6 +10,14 @@ export const ORIGIN_FILTER = "ORIGIN_FILTER"
 export const NAME_ORDER = "NAME_ORDER"
 export const ATTACK_ORDER = "ATTACK_ORDER"
 export const TYPE_FILTER = "TYPE_FILTER"
+export const All_POKEMONS = "All_POKEMONS"
+
+
+export const allPokemons = ()=>{
+    return{
+        type:All_POKEMONS
+    }
+}
 
 export const originFilter = (origin)=>{
     return{
